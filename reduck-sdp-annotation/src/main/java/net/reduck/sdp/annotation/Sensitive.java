@@ -10,6 +10,6 @@ import java.lang.annotation.Target;
  * @since 2023/5/29 16:55
  */
 @Retention(RetentionPolicy.SOURCE)
-@Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER})
+@Target({ElementType.FIELD, ElementType.METHOD, ElementType.TYPE})
 public @interface Sensitive {
 }
