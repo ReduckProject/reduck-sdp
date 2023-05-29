@@ -19,7 +19,6 @@ import javax.lang.model.element.TypeElement;
 import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
 import javax.persistence.Convert;
-import java.io.FileNotFoundException;
 import java.util.Set;
 
 /**
@@ -71,8 +70,8 @@ public class SensitiveProcessor extends AbstractProcessor {
                                 if (Sensitive.class.getName().equals(jcAnnotation.getAnnotationType().type.tsym.toString())) {
                                     JCTree.JCAnnotation converterAnnotation = treeMaker.Annotation(
                                             astMojo.select(Convert.class.getName())
-                                            ,List.of(treeMaker.Assign(treeMaker.Ident(names.fromString("converter"))
-                                                            , treeMaker.Select(treeMaker.Ident(names.fromString(SensitiveConverter.class.getSimpleName()))
+                                            , List.of(treeMaker.Assign(treeMaker.Ident(names.fromString("converter"))
+                                                    , treeMaker.Select(treeMaker.Ident(names.fromString(SensitiveConverter.class.getSimpleName()))
                                                             , names.fromString("class")))));
 
                                     nil = nil.append(converterAnnotation);

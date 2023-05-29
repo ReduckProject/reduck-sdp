@@ -17,7 +17,7 @@ import java.util.Base64;
 public class RsaTest {
 
     @Test
-    public void testEncAndDec(){
+    public void testEncAndDec() {
         KeyPair keyPair = RsaUtils.getKeyPair(1024);
 
 

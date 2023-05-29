@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ReduckSdpAnnotationApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ReduckSdpAnnotationApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ReduckSdpAnnotationApplication.class, args);
+    }
 
 }

@@ -40,7 +40,7 @@ public class AstMojo {
             }
         }
 
-        if(!contains) {
+        if (!contains) {
             JCTree.JCIdent jcIdent = treeMaker.Ident(names.fromString(importType.getPackage().getName()));
             Name className = names.fromString(importType.getSimpleName());
             JCTree.JCFieldAccess jcFieldAccess = treeMaker.Select(jcIdent, className);

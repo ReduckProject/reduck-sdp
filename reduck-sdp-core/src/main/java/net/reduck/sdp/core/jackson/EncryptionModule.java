@@ -6,7 +6,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.core.util.VersionUtil;
 import com.fasterxml.jackson.databind.*;
-import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.databind.deser.BeanDeserializerBuilder;
 import com.fasterxml.jackson.databind.deser.BeanDeserializerModifier;
 import com.fasterxml.jackson.databind.deser.SettableBeanProperty;
@@ -81,9 +80,13 @@ public class EncryptionModule extends Module {
 
         @Override
         public void serialize(Object value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
+            if (serializer == null) {
+                serializers.defaultSerializeValue(EncryptionConverter.INSTANCE.encrypt((String) value), gen);
+                return;
+            }
 
             if (value instanceof String) {
-                serializer.serialize(EncryptionConverter.INSTANCE.decrypt((String) value), gen, serializers);
+                serializer.serialize(EncryptionConverter.INSTANCE.encrypt((String) value), gen, serializers);
             }
         }
     }

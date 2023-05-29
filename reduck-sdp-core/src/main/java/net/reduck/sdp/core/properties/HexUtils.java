@@ -14,7 +14,6 @@ public class HexUtils {
      * hex string  to byte[]
      *
      * @param hexStr Hex String
-     *
      * @return byte[]
      */
     public static byte[] hex2byte(String hexStr) {
@@ -39,7 +38,6 @@ public class HexUtils {
      * byte[] to hex string
      *
      * @param b byte
-     *
      * @return Hex String
      */
     public static String byte2hex(byte[] b) {
@@ -55,7 +53,6 @@ public class HexUtils {
      * a byte to hex string
      *
      * @param b byte
-     *
      * @return Hex String
      */
     protected static String byte2HexString(byte b) {
