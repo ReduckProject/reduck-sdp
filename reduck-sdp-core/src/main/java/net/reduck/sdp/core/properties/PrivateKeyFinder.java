@@ -1,7 +1,6 @@
 package net.reduck.sdp.core.properties;
 
 import lombok.SneakyThrows;
-import net.reduck.data.protection.internal.RsaUtils;
 import org.springframework.core.io.UrlResource;
 import org.springframework.util.FileCopyUtils;
 
@@ -73,7 +72,7 @@ public class PrivateKeyFinder {
         return null;
     }
 
-    private final String CIPHER_ALGORITHM = "AES/CBC/NoPadding";
+    private final String CIPHER_ALGORITHM = "AES/CBC/PKCS5Padding";
     private final String KEY_TYPE = "AES";
 
     @SneakyThrows

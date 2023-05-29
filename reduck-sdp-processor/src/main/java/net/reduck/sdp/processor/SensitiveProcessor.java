@@ -40,7 +40,7 @@ public class SensitiveProcessor extends AbstractProcessor {
     private Symtab symtab;
     private AstMojo astMojo;
 
-    public SensitiveProcessor() throws FileNotFoundException {
+    public SensitiveProcessor() {
     }
 
     @Override
@@ -65,12 +65,13 @@ public class SensitiveProcessor extends AbstractProcessor {
                     try {
                         if (jcAnnotations != null && jcAnnotations.size() > 0) {
                             List<JCTree.JCAnnotation> nil = List.nil();
-
+                            System.err.println(nil.toString());
+                            System.err.println("===============");
                             for (JCTree.JCAnnotation jcAnnotation : jcAnnotations) {
                                 if (Sensitive.class.getName().equals(jcAnnotation.getAnnotationType().type.tsym.toString())) {
                                     JCTree.JCAnnotation converterAnnotation = treeMaker.Annotation(
                                             astMojo.select(Convert.class.getName())
-                                            ,List.of(treeMaker.Assign(treeMaker.Ident(names.fromString("convert"))
+                                            ,List.of(treeMaker.Assign(treeMaker.Ident(names.fromString("converter"))
                                                             , treeMaker.Select(treeMaker.Ident(names.fromString(SensitiveConverter.class.getSimpleName()))
                                                             , names.fromString("class")))));
 
@@ -81,6 +82,8 @@ public class SensitiveProcessor extends AbstractProcessor {
                             }
 
                             jcVariableDecl.mods.annotations = nil;
+
+                            System.err.println(nil.toString());
                         }
                     } catch (Exception e) {
                         System.err.println(e);

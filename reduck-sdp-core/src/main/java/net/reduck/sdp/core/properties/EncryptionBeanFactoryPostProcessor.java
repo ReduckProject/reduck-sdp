@@ -32,7 +32,7 @@ public class EncryptionBeanFactoryPostProcessor implements BeanFactoryPostProces
         for (PropertySource<?> propertySource : mutablePropertySources) {
             if (propertySource instanceof OriginTrackedMapPropertySource) {
                 mutablePropertySources.replace(propertySource.getName(),
-                        new PropertySourceWrapper(propertySource
+                        new PropertySourceWrapper<>(propertySource
                                 , new AesEncryptor(PrivateKeyFinder.getSecretKey(secretKey))
                                 , new EncryptionWrapperDetector("$ENC{", "}"))
                 );
