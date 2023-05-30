@@ -42,7 +42,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.reduck</groupId>
+            <groupId>net.reduck</groupId>
             <artifactId>reduck-sdp-annotation</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
